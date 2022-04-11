@@ -7,6 +7,7 @@ const Header = () => {
     <div className="boxShadow">
       <nav>
         <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="/services">Services</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/contact">Contact</CustomLink>
         <CustomLink to="/login">Login</CustomLink>

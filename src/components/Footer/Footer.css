@@ -6,3 +6,7 @@ footer {
   color: #737373;
   height: 50px;
 }
+
+footer p {
+  margin: 0;
+}
