@@ -12,7 +12,7 @@ const Expert = (props) => {
         </div>
         <div className="card-body expert-details">
           <h3 className="card-title">{name}</h3>
-          <p>
+          <p className="pb-3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident,
             delectus, laborum ullam reiciendis tenetur praesentium dolores
             suscipit aliquid error blanditiis sed.
