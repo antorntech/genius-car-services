@@ -1,0 +1,23 @@
+nav {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 10px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+  color: orange;
+}
+
+.boxShadow {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
