@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import "./Service.css";
 
 const Service = (props) => {
@@ -15,6 +16,7 @@ const Service = (props) => {
           <p>
             <strong>Price: </strong>${price}
           </p>
+          <Button className="service-book-btn">Book: {name} </Button>
         </div>
       </div>
     </div>

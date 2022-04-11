@@ -8,7 +8,7 @@ const Services = () => {
     <div className="container my-5">
       <header className="my-4">
         <h1>
-          All <span style={{ color: "orange" }}>Services</span>
+          Our <span style={{ color: "orange" }}>Services</span>
         </h1>
         <div
           className="mx-auto"
