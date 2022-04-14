@@ -23,11 +23,11 @@ const Experts = () => {
     <div className="container my-5">
       <header className="my-4">
         <h1>
-          Our <span style={{ color: "orange" }}>Experts</span>
+          Our <span style={{ color: "#00aefe" }}>Experts</span>
         </h1>
         <div
           className="mx-auto"
-          style={{ borderBottom: "2px solid orange", width: "150px" }}
+          style={{ borderBottom: "2px solid #00aefe", width: "150px" }}
         ></div>
       </header>
       <div className="row row-cols-1 row-cols-lg-3 gy-4">

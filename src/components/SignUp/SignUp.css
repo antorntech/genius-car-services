@@ -1,14 +1,14 @@
-.login-btn {
+.signUP-btn {
   background-color: #00aefe;
   border: none;
   padding: 8px 25px;
 }
 
-.login-btn:hover {
+.signUP-btn:hover {
   background-color: #007dfe;
 }
 
-.login-btn:focus {
+.signUP-btn:focus {
   border: none;
   outline: none;
   background-color: #007dfe;

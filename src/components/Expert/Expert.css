@@ -10,7 +10,7 @@
 
 .expert-details-btn {
   text-decoration: none;
-  background-color: orange;
+  background-color: #00aefe;
   color: white;
   padding: 8px 30px;
   border-radius: 5px;
@@ -18,6 +18,6 @@
 }
 
 .expert-details-btn:hover {
-  background-color: rgb(255, 123, 0);
+  background-color: #007dfe;
   color: white;
 }
