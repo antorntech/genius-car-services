@@ -5,22 +5,28 @@ import googleIcon from "../../images/social/google.png";
 import facebook from "../../images/social/facebook.png";
 import github from "../../images/social/github.png";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
   let errorElement;
-  if (error) {
+  if (error || error1) {
     errorElement = (
       <div>
-        <p className="text-danger">Error: {error.message}</p>
+        <p className="text-danger">
+          Error: {error?.message} {error1?.message}
+        </p>
       </div>
     );
   }
 
-  if (user) {
+  if (user || user1) {
     navigate("/home");
   }
 
@@ -51,7 +57,7 @@ const SocialLogin = () => {
           <img src={facebook} alt="" />
           <span className="px-2">Sign In With Facebook</span>
         </button>
-        <button className="googleBtn my-2">
+        <button onClick={() => signInWithGithub()} className="googleBtn my-2">
           <img src={github} alt="" />
           <span className="px-2">Sign In With Github</span>
         </button>
