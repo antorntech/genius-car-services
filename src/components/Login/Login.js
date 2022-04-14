@@ -2,10 +2,11 @@ import React, { useRef } from "react";
 import "./Login.css";
 import loginImg from "../../images/sigin-up/login-banner.jpg";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -14,14 +15,29 @@ const Login = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
 
+  const navigate = useNavigate();
+
   const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+
+  if (user) {
+    navigate("/home");
+  }
 
   const handleLoginForm = (event) => {
     const email = emailRef.current.value;
     const password = passRef.current.value;
     signInWithEmailAndPassword(email, password);
     event.preventDefault();
+  };
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
   };
 
   return (
@@ -35,6 +51,19 @@ const Login = () => {
             <Link style={{ color: "#00aefe" }} to="/sign-up">
               create an account
             </Link>
+            <span className="px-2">/</span>
+            <button
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "#00aefe",
+                textDecoration: "underline",
+                padding: "0",
+              }}
+              onClick={resetPassword}
+            >
+              <span>Forget Password</span>
+            </button>
           </div>
         </div>
         <div className="col p-2 p-lg-5">
@@ -62,9 +91,6 @@ const Login = () => {
                   type="password"
                   placeholder="Password"
                 />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember me" />
               </Form.Group>
               <Button className="login-btn" type="submit">
                 Login

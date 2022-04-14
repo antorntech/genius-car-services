@@ -31,7 +31,7 @@ const SocialLogin = () => {
   }
 
   return (
-    <div>
+    <div className="my-3">
       <div className="d-flex align-items-center">
         <div
           style={{ borderBottom: "1px solid #b8b8b8" }}

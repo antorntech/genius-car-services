@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./SignUp.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  const [agree, setAgree] = useState(false);
   const emailRef = useRef("");
   const passRef = useRef("");
   const confirmPassRef = useRef("");
@@ -19,10 +20,11 @@ const SignUp = () => {
     const email = emailRef.current.value;
     const password = passRef.current.value;
     const confirmPassword = confirmPassRef.current.value;
+    // const agree = event.target.terms.checked;
 
     if (password !== confirmPassword) {
       document.getElementById("passError").style.display = "block";
-    } else {
+    } else if (agree) {
       createUserWithEmailAndPassword(email, password);
     }
 
@@ -81,9 +83,15 @@ const SignUp = () => {
                 Password Not Match.
               </p>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember me" />
+                <Form.Check
+                  type="checkbox"
+                  name="terms"
+                  onClick={() => setAgree(!agree)}
+                  label="Accept Term and Condition"
+                  className={agree ? "text-primary" : "text-secondary"}
+                />
               </Form.Group>
-              <Button className="signUP-btn" type="submit">
+              <Button disabled={!agree} className="signUP-btn" type="submit">
                 SignUp
               </Button>
             </Form>
