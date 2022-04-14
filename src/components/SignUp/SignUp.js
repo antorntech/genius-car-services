@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import signupImg from "../../images/sigin-up/signup-banner.jpg";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const emailRef = useRef("");
@@ -87,6 +88,7 @@ const SignUp = () => {
               </Button>
             </Form>
           </div>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
