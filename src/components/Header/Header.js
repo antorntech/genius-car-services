@@ -4,8 +4,8 @@ import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import CustomLink from "../CustomLink/CustomLink";
 import "./Header.css";
+import logo from "../../images/logo.png";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -15,8 +15,9 @@ const Header = () => {
   };
 
   return (
-    <div className="boxShadow">
+    <>
       <Navbar
+        sticky="top"
         collapseOnSelect
         expand="lg"
         bg="dark"
@@ -24,7 +25,9 @@ const Header = () => {
         className="py-3"
       >
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/home">
+            <img src={logo} alt="" />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
@@ -62,7 +65,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
+    </>
   );
 };
 
