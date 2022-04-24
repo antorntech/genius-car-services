@@ -24,9 +24,8 @@ const SignUp = () => {
 
     if (password !== confirmPassword) {
       document.getElementById("passError").style.display = "block";
-    } else if (agree) {
-      createUserWithEmailAndPassword(email, password);
     }
+    createUserWithEmailAndPassword(email, password);
 
     event.preventDefault();
   };
