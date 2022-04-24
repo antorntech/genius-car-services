@@ -10,6 +10,8 @@ import Footer from "./components/Footer/Footer";
 import Services from "./components/Services/Services";
 import SignUp from "./components/SignUp/SignUp";
 import ServiceDetail from "./components/ServiceDetail/ServiceDetail";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
+import CheckOut from "./components/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -22,6 +24,14 @@ function App() {
         <Route
           path="/service/:serviceId"
           element={<ServiceDetail></ServiceDetail>}
+        ></Route>
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckOut></CheckOut>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./Login.css";
 import loginImg from "../../images/sigin-up/login-banner.jpg";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import {
   useAuthState,
@@ -12,6 +12,8 @@ import {
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const emailRef = useRef("");
   const passRef = useRef("");
 
@@ -24,7 +26,7 @@ const Login = () => {
     useSendPasswordResetEmail(auth);
 
   if (user) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
 
   const handleLoginForm = (event) => {
