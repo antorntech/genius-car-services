@@ -10,13 +10,6 @@ const CheckOut = () => {
   const { serviceId } = useParams();
   const [service] = useServiceDetail(serviceId);
   const [user, loading] = useAuthState(auth);
-  if (loading) {
-    return (
-      <div>
-        <p>Initialising User...</p>
-      </div>
-    );
-  }
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
@@ -35,6 +28,14 @@ const CheckOut = () => {
       }
     });
   };
+
+  if (loading) {
+    return (
+      <div>
+        <p>Initialising User...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-50 mx-auto">
